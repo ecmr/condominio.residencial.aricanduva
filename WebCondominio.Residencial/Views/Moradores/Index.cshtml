@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebCondominio.Residencial.Models.Morador>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bloco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartamento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bloco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apartamento)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMorador">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdMorador">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMorador">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
